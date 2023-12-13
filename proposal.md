@@ -1,13 +1,54 @@
-1. What tech stack will you use for your final project? We recommend that you use React and Node for this project, however if you are extremely interested in becoming a Python developer you are welcome to use Python/Flask for this project. 
-2.  Is the front-end UI or the back-end going to be the focus of your project? Or are you going to make an evenly focused full-stack application? 
-3. Will this be a website? A mobile app? Something else? 
-4.  What goal will your project be designed to achieve? 
-5.  What kind of users will visit your app? In other words, what is the demographic of your users? 
-6.  What data do you plan on using? How are you planning on collecting your data? You may have not picked your actual API yet, which is fine, just outline what kind of data you would like it to contain. You are welcome to create your own API andpopulate it with data. If you are using a Python/Flask stack are required to create your own API. 
-7.  In brief, outline your approach to creating your project (knowing that you may not know everything in advance and that these details might change later). Answer questions like the ones below, but feel free to add more information: 
-    1. What does your database schema look like? 
-    2. What kinds of issues might you run into with your API? This is especially important if you are creating your own API, web scraping produces notoriously messy data. 
-    3. Is there any sensitive information you need to secure? 
-    4. What functionality will your app include? 
-    5. What will the user flow look like? 
-    6. What features make your site more than a CRUD app? What are your stretch goals?
+
+1. **Goal of the Website:**
+   - The website aims to offer a seamless platform for users to search for medications, compare prices from different pharmacies, and potentially find discounts. The primary goal is to simplify the process of obtaining affordable medications.
+
+2. **User Demographics:**
+   - The target audience includes individuals seeking affordable medications, caregivers, and healthcare professionals. The website is designed to be accessible and useful for a diverse demographic.
+
+3. **Data Usage:**
+   - The website plans to use data related to medications, pharmacies, and user information. Utilizing the Open FDA API for drug information, the data will include medication details such as brand name, generic name, dosage, and adverse event information. The PostgreSQL database schema will include tables like `Medications`, `Pharmacies`, `Users`, and `Prices`. 
+
+   - **Example Database Schema:**
+     - Medications Table:
+       - `id` (Primary Key)
+       - `brand_name`
+       - `generic_name`
+       - `dosage`
+       - `instructions`
+       - `adverse_events` (Link to adverse events from Open FDA)
+
+     - Pharmacies Table:
+       - `id` (Primary Key)
+       - `name`
+       - `location`
+
+     - Users Table:
+       - `id` (Primary Key)
+       - `username`
+       - `password` (Hashed)
+       - `email`
+
+     - Prices Table:
+       - `id` (Primary Key)
+       - `medication_id` (Foreign Key)
+       - `pharmacy_id` (Foreign Key)
+       - `price`
+
+4. **Approach to Project:**
+   - a. **Database Schema:**
+      - The database schema is designed to establish relationships between medications, pharmacies, users, and prices. For instance, the `Prices` table has foreign keys linking to the `Medications` and `Pharmacies` tables.
+
+   - b. **API Challenges:**
+      - Challenges might include mapping the Open FDA API's drug information to fit the database schema and handling the dynamic nature of adverse event data.
+
+   - c. **Sensitive Information:**
+      - Sensitive information like user passwords will be securely stored and handled. Security measures will be implemented, including encryption and secure authentication.
+
+   - d. **Functionality:**
+      - Core functionalities include medication search, price comparison, user account creation, and preference saving. The Node.js and Express backend will handle these functionalities, interacting with the PostgreSQL database.
+
+   - e. **User Flow:**
+      - Users will initiate a search for a specific medication, view prices from different pharmacies, and have the option to create accounts to save preferences. The user flow is designed to be intuitive and user-friendly, facilitated by the React frontend.
+
+   - f. **Beyond CRUD:**
+      - The website goes beyond basic CRUD operations by incorporating features like user accounts, personalized preferences, and leveraging the Open FDA API for adverse event information, enriching the user experience.
