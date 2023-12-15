@@ -8,7 +8,7 @@
 3. **Data Usage:**
    - The website plans to use data related to medications, pharmacies, and user information. Utilizing the Open FDA API for drug information, the data will include medication details such as brand name, generic name, dosage, and adverse event information. The API returns individual results as JSON by default. The PostgreSQL database schema will include tables like `Medications`, `Pharmacies`, `Users`, and `Prices`. 
 
-   [Database Schema](QualityRx.png)
+   ![Database Schema](QualityRx.png)
 
 4. **Approach to Project:**
    - a. **Database Schema:**
