@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Pharmacies = require('../models/pharmacies');
+const Pharmacies = require('../models/pharmacy');
 const jwt = require('jsonwebtoken');
 const config = require('../config/config');
 
