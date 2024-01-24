@@ -6,6 +6,8 @@
 -- Dumped from database version 9.6.10
 -- Dumped by pg_dump version 9.6.10
 
+-- if you mess up again use psql -U work -d qualityrx < data.sql
+
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -118,7 +120,7 @@ CREATE TABLE public._marketingstatus_lookup (
 ALTER TABLE public._marketingstatus_lookup OWNER TO rebasedata;
 
 --
--- Name: _products; Type: TABLE; Schema: public; Owner: rebasedata
+-- Name: products; Type: TABLE; Schema: public; Owner: rebasedata
 --
 
 CREATE TABLE public._products (
