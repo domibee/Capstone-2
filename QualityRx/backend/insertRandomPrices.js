@@ -2,10 +2,10 @@ const { Pool } = require('pg');
 
 // Create a connection pool
 const pool = new Pool({
-  user: process.env.DATABASE_USER,
-  host:  process.env.DATABASE_HOST,
-  database: process.env.DATABASE_NAME,
-  password: process.env.DATABASE_PASSWORD,
+  host: process.env.DATABASE_HOST || 'localhost',
+  user: process.env.DATABASE_USER || 'work',
+  password: process.env.DATABASE_PASSWORD || 'dongblebee',
+  database: process.env.DATABASE_NAME || 'qualityrx',
   port: 5432, // Change it according to your PostgreSQL port
 
 });
@@ -26,7 +26,7 @@ const insertRandomPrices = async (rowCount) => {
     // Generate and execute the SQL query for the specified number of rows
     for (let i = 0; i < rowCount; i++) {
       const randomPrice = getRandomPrice();
-      await client.query('INSERT INTO _products (price) VALUES ($1)', [randomPrice]);
+      await client.query('INSERT INTO products (price) VALUES ($1)', [randomPrice]);
     }
     // Commit the transaction
     await client.query('COMMIT');
@@ -41,10 +41,6 @@ const insertRandomPrices = async (rowCount) => {
   }
 };
 
-// Specify the number of rows you want to insert
-const numberOfRows = 100; // You can adjust this number
 
-// Call the function to insert random prices
-insertRandomPrices(numberOfRows);
 
 module.exports = insertRandomPrices;
