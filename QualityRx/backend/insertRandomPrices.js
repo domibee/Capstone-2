@@ -26,7 +26,7 @@ const insertRandomPrices = async (rowCount) => {
     // Generate and execute the SQL query for the specified number of rows
     for (let i = 0; i < rowCount; i++) {
       const randomPrice = getRandomPrice();
-      await client.query('INSERT INTO products (price) VALUES ($1)', [randomPrice]);
+      await client.query('INSERT INTO _products (price) VALUES ($1)', [randomPrice]);
     }
     // Commit the transaction
     await client.query('COMMIT');
@@ -40,7 +40,5 @@ const insertRandomPrices = async (rowCount) => {
     client.release();
   }
 };
-
-
 
 module.exports = insertRandomPrices;

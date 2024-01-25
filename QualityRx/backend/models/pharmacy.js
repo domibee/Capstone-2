@@ -1,6 +1,15 @@
 // ./backend/models/Pharmacies.js
 
-const pool = require('../config/db');
+const {Pool}= require('pg');
+
+const pool = new Pool({
+  host: process.env.DATABASE_HOST || 'localhost',
+  user: process.env.DATABASE_USER || 'work',
+  password: process.env.DATABASE_PASSWORD || 'dongblebee',
+  database: process.env.DATABASE_NAME || 'qualityrx',
+  port: 5432, // Change it according to your PostgreSQL port
+
+});
 
 const Pharmacies = {
   getAllPharmacies: async () => {
