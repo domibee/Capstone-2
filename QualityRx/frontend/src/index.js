@@ -1,24 +1,11 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import "./styles/index.css";
+import App from "./App";
 
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const insertRandomPrices = require('../../backend/insertRandomPrices');
-const drugRoutes = require('../../backend/routes/medications');
+ReactDOM.render(<App />, document.getElementById("root"));
 
-const app = express(); 
-const PORT = process.env.PORT || 3000;
-
-// Specify the number of rows you want to insert
-const numberOfRows = 100000; // You can adjust this number
-
-// Call the function to insert random prices
-insertRandomPrices(numberOfRows);
-
-app.use(cors());
-app.use(bodyParser.json());
-app.use('/api/drugs', drugRoutes);
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
-
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
