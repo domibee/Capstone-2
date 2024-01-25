@@ -56,7 +56,6 @@ router.post('/', verifyToken, async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
-
 // Update details of a specific medication
 router.put('/:id', verifyToken, async (req, res) => {
   const medicationId = req.params.id;
