@@ -1,25 +1,28 @@
+Certainly! Here's an updated version of your README file with additional information based on your project details:
+
+```markdown
 # QualityRx
 
-QualityRx is a medication pricing comparison app designed to help users find the best prices for their prescriptions across different pharmacies. QualityRx empowers users to make informed decisions about their healthcare expenses.
+QualityRx is a medication pricing comparison app designed to help users find the best prices for their prescriptions across different pharmacies. With its user-friendly interface, QualityRx empowers users to make informed decisions about their healthcare expenses by comparing medication prices at local pharmacies.
 
 ## Table of Contents
 
-- [QualityRx](#QualityRx)
-  - [Table of Contents](#table-of-contents)
-  - [About](#about)
-  - [Features](#features)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contributing](#contributing)
-  - [License](#license)
-  - [Acknowledgments](#acknowledgments)
-  - [Contact](#contact)
+- [About](#about)
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+- [Contact](#contact)
 
 ## About
 
-QualityRx provides a user-friendly interface for searching and comparing medication prices at local pharmacies. Users can easily discover the most cost-effective options for their prescribed medications, potentially saving money on their healthcare expenses.
+QualityRx provides a seamless way to search and compare medication prices, helping users to discover the most cost-effective options for their prescriptions. The app aims to assist in reducing healthcare expenses through informed decision-making.
 
 ## Technologies Used
 
@@ -27,31 +30,79 @@ QualityRx provides a user-friendly interface for searching and comparing medicat
   - Node.js
   - Express
   - PostgreSQL
+  - JWT for authentication
+  - Bcrypt for password hashing
 
 - **Frontend:**
   - React
+  - Axios for API requests
+  - React Router for navigation
 
-- **API Requests:**
-  - Axios
+- **Data Source:**
+  - Utilizes the Drugs@FDA: Data Import Utility for medication data (https://github.com/jason-fries/drugsatfda-db)
 
-<!-- ## Features
+## Features
 
-List the key features or functionalities of your project.
+- User authentication (Login/Registration)
+- Search functionality for medications
+- Price comparison across different pharmacies
+- User profile management
+- Secure handling of user data
 
 ## Getting Started
 
-Instructions for setting up your project locally. Break this into sections like Prerequisites and Installation.
+These instructions will help you set up and run QualityRx on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-List any software, libraries, or tools that need to be installed before your project can be used.
+- Node.js
+- PostgreSQL
+- npm (Node Package Manager)
 
 ### Installation
 
-Step-by-step guide on how to install and set up your project.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/your-username/QualityRx.git
+   ```
+2. Install backend dependencies
+   ```bash
+   cd QualityRx/backend
+   npm install
+   ```
+3. Install frontend dependencies
+   ```bash
+   cd QualityRx/frontend
+   npm install
+   ```
+4. Set up the PostgreSQL database and import medication data using the Drugs@FDA utility.
 
-```bash
-# Example command for installing dependencies
-npm install -->
+5. Create a `.env` file in the backend directory and add your database and JWT secret configurations.
 
-Used Drugs@FDA: Data Import Utility https://github.com/jason-fries/drugsatfda-db
+6. Start the backend server
+   ```bash
+   cd backend
+   npm start
+   ```
+7. Start the frontend application
+   ```bash
+   cd frontend
+   npm start
+   ```
+
+## Usage
+
+After installation, you can use QualityRx to search for medications, compare prices, and manage your user account.
+
+<!-- ## API Endpoints
+
+List and describe the available API endpoints for the backend, including methods, request parameters, and expected responses.
+
+## Contributing
+
+Guidelines for contributing to the project, including how to submit pull requests, report bugs, and suggest enhancements.
+
+## Acknowledgments
+
+Thank any individuals, organizations, or resources that were instrumental in the development of your project.
+ -->
