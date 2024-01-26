@@ -1,8 +1,9 @@
 // ./backend/models/Users.js
-// const knex = require('knex');
+require('dotenv').config();
 const db = require('../config/db')
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const jwtSecret = process.env.JWT_SECRET;
 
 const Users = {
   getAllUsers: async () => {
@@ -67,7 +68,7 @@ const Users = {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ userId: user.id, username: user.username }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ password: user.password}, jwtSecret, {
       expiresIn: '1h',
     });
 

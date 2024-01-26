@@ -2,6 +2,7 @@
 
 // Define your configuration variables here
 require('dotenv').config();
+
 const PORT = 3001; // Set the desired local port
 
 const database = {

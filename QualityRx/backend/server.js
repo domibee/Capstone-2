@@ -1,10 +1,13 @@
 // ./backend/server.js
+
+const knex = require('knex');
 const express = require('express');
 const cors = require('cors');
 const medicationsRouter = require('./routes/medication');
 const pharmaciesRouter = require('./routes/pharmacy');
 const usersRouter = require('./routes/user');
 const config = require('./config/config');
+
 
 // const insertRandomPrices = require('./insertRandomPrices');
 
