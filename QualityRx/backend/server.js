@@ -5,15 +5,13 @@ const medicationsRouter = require('./routes/medication');
 const pharmaciesRouter = require('./routes/pharmacy');
 const usersRouter = require('./routes/user');
 const config = require('./config/config');
-const insertRandomPrices = require('./insertRandomPrices');
+
+// const insertRandomPrices = require('./insertRandomPrices');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-// Log the contents of the 'config' module
-console.log('Config:', config);
 
 // Use environment variables from 'config'
 const { PORT } = config;

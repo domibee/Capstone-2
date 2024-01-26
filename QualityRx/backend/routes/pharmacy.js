@@ -3,6 +3,7 @@ const router = express.Router();
 const Pharmacies = require('../models/pharmacy');
 const jwt = require('jsonwebtoken');
 const config = require('../config/config');
+const jwtSecret = process.env.JWT_SECRET;
 
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {

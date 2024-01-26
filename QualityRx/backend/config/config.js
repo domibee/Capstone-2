@@ -1,6 +1,7 @@
 // ./backend/config/config.js
 
 // Define your configuration variables here
+require('dotenv').config();
 const PORT = 3001; // Set the desired local port
 
 const database = {
@@ -12,5 +13,6 @@ const database = {
 
 module.exports = {
   PORT,
-  database
+  database,
+  jwtSecret: process.env.JWT_SECRET
 };
