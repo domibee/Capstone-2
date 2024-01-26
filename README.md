@@ -1,6 +1,4 @@
-Certainly! Here's an updated version of your README file with additional information based on your project details:
 
-```markdown
 # QualityRx
 
 QualityRx is a medication pricing comparison app designed to help users find the best prices for their prescriptions across different pharmacies. With its user-friendly interface, QualityRx empowers users to make informed decisions about their healthcare expenses by comparing medication prices at local pharmacies.
