@@ -9,7 +9,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/users/login', { email, password });
+      const response = await axios.post('http://localhost:3003/api/users/login', { email, password });
       console.log(response.data);
       // Handle login success, store token, redirect, etc.
     } catch (err) {

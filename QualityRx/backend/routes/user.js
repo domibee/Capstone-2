@@ -30,20 +30,19 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Create a new user
+// Register a new user
 
 router.post('/', async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
-    // Check if the username is already taken
-    const isUsernameTaken = await Users.isUsernameTaken(username);
-
-    if (isUsernameTaken) {
+    // Check if username is taken
+    const usernameExists = await Users.isUsernameTaken(username);
+    if (usernameExists) {
       return res.status(400).json({ error: 'Username is already taken' });
     }
 
-    // If the username is not taken, proceed to create a new user
+    // Proceed with creating a new user
     const newUser = await Users.createUser(username, email, password);
     res.status(201).json(newUser);
   } catch (error) {
@@ -51,6 +50,7 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 
 

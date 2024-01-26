@@ -22,18 +22,15 @@ const Users = {
   async createUser(username, email, password) {
     // Hash the password before storing it in the database
     const hashedPassword = await bcrypt.hash(password, 10);
-
+  
     // Insert the new user into your database
     const [newUserId] = await db('users').insert({
       username,
       email,
       password: hashedPassword,
     }).returning('id');
-
-    // Retrieve the newly created user
-    const newUser = await db('users').where({ id: newUserId }).first();
-
-    return newUser;
+  
+    return newUserId; // Return only the ID, not an object
   },
 
   updateUser: async (userId, username, email, password) => {
