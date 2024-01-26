@@ -1,16 +1,19 @@
 import React from 'react';
-import MedicationList from './components/MedicationList';
-import PharmacyList from './components/PharmacyList';
-import UserList from './components/UserList';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from './components/user/Login';
+import Register from './components/user/Register';
 
 function App() {
   return (
-    <div className="App">
-      <h1>HELLO</h1>
-      <MedicationList />
-      <PharmacyList />
-      <UserList />
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<div>Home Page</div>} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

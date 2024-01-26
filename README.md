@@ -54,5 +54,4 @@ Step-by-step guide on how to install and set up your project.
 # Example command for installing dependencies
 npm install -->
 
-
 Used Drugs@FDA: Data Import Utility https://github.com/jason-fries/drugsatfda-db

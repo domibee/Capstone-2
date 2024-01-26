@@ -5,7 +5,7 @@ function PharmacyList() {
   const [pharmacies, setPharmacies] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/pharmacies')
+    axios.get('http://localhost:3001/api/pharmacies')
       .then(response => {
         setPharmacies(response.data);
       })

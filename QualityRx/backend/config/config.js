@@ -1,7 +1,7 @@
 // ./backend/config/config.js
 
 // Define your configuration variables here
-const PORT = 3000; // Set the desired local port
+const PORT = 3001; // Set the desired local port
 
 const database = {
   host: process.env.DATABASE_HOST || 'localhost',
@@ -12,6 +12,5 @@ const database = {
 
 module.exports = {
   PORT,
-  database,
-  // Add more configuration variables if needed
+  database
 };

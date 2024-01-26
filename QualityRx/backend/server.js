@@ -1,7 +1,6 @@
 // ./backend/server.js
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const medicationsRouter = require('./routes/medication');
 const pharmaciesRouter = require('./routes/pharmacy');
 const usersRouter = require('./routes/user');
@@ -11,15 +10,15 @@ const insertRandomPrices = require('./insertRandomPrices');
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 // Log the contents of the 'config' module
 console.log('Config:', config);
 
 // Use environment variables from 'config'
 const { PORT } = config;
-// Call the function to insert random prices
-insertRandomPrices(100); // Adjust the number of rows as needed
+// // Call the function to insert random prices
+// insertRandomPrices(100); // Adjust the number of rows as needed
 
 app.use('/api/medications', medicationsRouter);
 app.use('/api/pharmacies', pharmaciesRouter);

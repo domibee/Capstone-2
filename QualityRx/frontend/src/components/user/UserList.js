@@ -5,7 +5,7 @@ function UserList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/users')
+    axios.get('http://localhost:3001/api/users')
       .then(response => {
         setUsers(response.data);
       })

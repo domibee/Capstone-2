@@ -53,6 +53,7 @@ router.post('/', async (req, res) => {
 });
 
 
+
 // Update details of a specific user
 router.put('/:id', async (req, res) => {
   const userId = req.params.id;
@@ -70,6 +71,7 @@ router.put('/:id', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 // Delete a specific user
 router.delete('/:id', async (req, res) => {
