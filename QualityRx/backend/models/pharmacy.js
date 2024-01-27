@@ -17,11 +17,6 @@ const Pharmacies = {
     return result.rows;
   },
 
-  getPharmacyById: async (pharmacyId) => {
-    const result = await pool.query('SELECT * FROM pharmacies WHERE id = $1', [pharmacyId]);
-    return result.rows[0];
-  },
-
   createPharmacy: async (name, location) => {
     const result = await pool.query('INSERT INTO pharmacies (name, location) VALUES ($1, $2) RETURNING *', [name, location]);
     return result.rows[0];

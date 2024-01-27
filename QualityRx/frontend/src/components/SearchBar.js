@@ -20,7 +20,7 @@ function SearchBar() {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button type="submit" disabled={!searchTerm.trim()}>Find your discount</button>
+      <button type="submit" disabled={!searchTerm.trim()}>Search</button>
     </form>
   );
 }
