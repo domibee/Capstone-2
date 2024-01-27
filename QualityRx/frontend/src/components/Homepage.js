@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+
 import { useNavigate, Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
-function Home() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const navigate = useNavigate();
 
+function Home() {
+  const navigate = useNavigate();
   const handleSearch = (e) => {
     e.preventDefault();
     // Navigate to the search results page with the searchTerm as a query parameter

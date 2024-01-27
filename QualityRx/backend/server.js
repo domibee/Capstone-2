@@ -7,22 +7,15 @@ const medicationsRouter = require('./routes/medication');
 const pharmaciesRouter = require('./routes/pharmacy');
 const usersRouter = require('./routes/user');
 const config = require('./config/config');
-// Add this to your main server file (e.g., app.js or index.js)
-const priceRoutes = require('./routes/prices');
-
-
-
-// const insertRandomPrices = require('./insertRandomPrices');
+const priceRoutes = require('./routes/pharmacyPrice');
+// Use environment variables from 'config'
+const { PORT } = config;
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// Use environment variables from 'config'
-const { PORT } = config;
-// // Call the function to insert random prices
-// insertRandomPrices(100); // Adjust the number of rows as needed
 
 app.use('/api/medications', medicationsRouter);
 app.use('/api/pharmacies', pharmaciesRouter);
