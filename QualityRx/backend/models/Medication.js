@@ -48,7 +48,6 @@ const Medications = {
     }
   },
   
-
   createMedication: async (name, description) => {
     const result = await pool.query('INSERT INTO _products (drugname, description) VALUES ($1, $2) RETURNING *', [name, description]);
     return result.rows[0];

@@ -7,6 +7,9 @@ const medicationsRouter = require('./routes/medication');
 const pharmaciesRouter = require('./routes/pharmacy');
 const usersRouter = require('./routes/user');
 const config = require('./config/config');
+// Add this to your main server file (e.g., app.js or index.js)
+const priceRoutes = require('./routes/prices');
+
 
 
 // const insertRandomPrices = require('./insertRandomPrices');
@@ -24,7 +27,7 @@ const { PORT } = config;
 app.use('/api/medications', medicationsRouter);
 app.use('/api/pharmacies', pharmaciesRouter);
 app.use('/api/users', usersRouter);
-
+app.use('/api/prices', priceRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

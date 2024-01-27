@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from '../SearchBar';
-import PharmacyPrice from '../pharmacy/PharmacyPrice';
+import MedicationPrice from './MedicationPrice';
 
 function MedicationSearchResults() {
   const [searchParams] = useSearchParams();
@@ -73,7 +73,7 @@ function MedicationSearchResults() {
   return (
     <div>
       <SearchBar />
-      <PharmacyPrice/>
+      <MedicationPrice medicationName={searchTerm} />
       <h2>Medication Details</h2>
       <p><strong>Brand Name:</strong> {medicationDetails.brandName}</p>
       <p><strong>Generic Name:</strong> {medicationDetails.genericName}</p>
