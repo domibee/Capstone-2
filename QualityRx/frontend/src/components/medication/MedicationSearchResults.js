@@ -1,9 +1,11 @@
+
 import './MedicationSearchResult.css';
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from '../SearchBar';
 import MedicationPrice from './MedicationPrice';
+
 
 function MedicationSearchResults() {
   const [searchParams] = useSearchParams();
@@ -74,9 +76,13 @@ function MedicationSearchResults() {
   return (
     <div className="medication-results-container">
       <div className="search-bar-custom">
+      <div className="search-bar-with-logo">
+        <Link to="/">
+          <img src="/QualityRx-logo.png" alt="QualityRx Logo" className="logo-small" />
+        </Link>
+      </div>
       <SearchBar />
       <MedicationPrice medicationName={searchTerm} />
-     
       <div className="medication-details">
       <h2>Medication Details</h2>
       <p><strong>Brand Name:</strong> {medicationDetails.brandName}</p>

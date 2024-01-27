@@ -48,11 +48,13 @@ body {
 
 .home-nav {
   margin-top: 40px;
+  
 }
 
 .home-nav a {
   color: #0056b3;
   margin: 0 10px;
+  
 }
 
 .home-nav a:hover {

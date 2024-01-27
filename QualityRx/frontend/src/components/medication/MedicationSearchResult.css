@@ -61,3 +61,15 @@ medication-results-container {
 .search-bar-custom button:hover {
   background-color: #45a049;
 }
+
+.search-bar-with-logo {
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start; 
+}
+
+.logo-small {
+  margin-right: 50px;
+  width: 300px; /* Adjust the size as needed */
+  height: auto;
+}
