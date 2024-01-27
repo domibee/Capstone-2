@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const Users = require('../models/user');
 const jwtSecret = process.env.JWT_SECRET;
+
 // Retrieve a list of users
 router.get('/', async (req, res) => {
   try {
@@ -36,7 +37,11 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const { username, email, password } = req.body;
-
+  // Server-side validation
+  if (!username.trim() || !email.trim() || !password.trim()) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+  
   try {
     // Check if username is taken
     const usernameExists = await Users.isUsernameTaken(username);

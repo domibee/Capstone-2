@@ -10,10 +10,12 @@ const database = {
   user: process.env.DATABASE_USER || 'work',
   password: process.env.DATABASE_PASSWORD || 'dongblebee',
   name: process.env.DATABASE_NAME || 'qualityrx',
+  
 };
+const jwtSecret = process.env.JWT_SECRET || 'secret';
 
 module.exports = {
   PORT,
   database,
-  jwtSecret: process.env.JWT_SECRET
+  jwtSecret
 };
