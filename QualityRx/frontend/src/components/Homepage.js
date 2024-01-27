@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -7,8 +7,8 @@ function Home() {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Navigate to the search results page with the searchTerm
-    navigate(`/search/${searchTerm}`);
+    // Navigate to the search results page with the searchTerm as a query parameter
+    navigate(`/medications?search=${encodeURIComponent(searchTerm)}`);
   };
 
   return (
@@ -36,9 +36,8 @@ function Home() {
       {/* Navigation Links */}
       <nav>
         <ul>
-          <li><a href="/medications">Browse Medications</a></li>
-          <li><a href="/pharmacies">Find Pharmacies</a></li>
-          <li><a href="/about">About Us</a></li>
+          <li><Link to="/pharmacies">Find Pharmacies</Link></li>
+          <li><Link to="/about">About Us</Link></li>
         </ul>
       </nav>
     </div>

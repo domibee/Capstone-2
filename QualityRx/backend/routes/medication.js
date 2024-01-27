@@ -18,22 +18,20 @@ const verifyToken = (req, res, next) => {
 
 // Retrieve a list of medications
 router.get('/', async (req, res) => {
-  try {
-    const medications = await Medications.getAllMedications();
-    res.json(medications);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-// Retrieve details of a specific medication
-router.get('/:id', async (req, res) => {
-  const medicationId = req.params.id;
+  const { brandName, genericName } = req.query;
 
   try {
-    const medication = await Medications.getMedicationById(medicationId);
-    if (!medication) {
+    let medication;
+
+    if (brandName) {
+      medication = await Medications.getMedicationByBrandName(brandName);
+    } else if (genericName) {
+      medication = await Medications.getMedicationByGenericName(genericName);
+    } else {
+      return res.status(400).json({ error: 'Brand name or generic name required for search' });
+    }
+
+    if (!medication || medication.length === 0) {
       return res.status(404).json({ error: 'Medication not found' });
     }
 
