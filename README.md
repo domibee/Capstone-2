@@ -6,14 +6,14 @@ QualityRx is a medication pricing comparison app designed to help users find the
 ## Table of Contents
 
 - [About](#about)
-- [Technologies Used](#technologies-used)
+- [Technologies Stack](#technologies-stack)
 - [Features](#features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [Contributing](#contributing)
+- [Tests](#tests)
+- [User Flow](#user-flow)
+- [Example API Endpoints](#example-api-endpoints)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 - [Contact](#contact)
@@ -22,40 +22,27 @@ QualityRx is a medication pricing comparison app designed to help users find the
 
 QualityRx provides a seamless way to search and compare medication prices, helping users to discover the most cost-effective options for their prescriptions. The app aims to assist in reducing healthcare expenses through informed decision-making.
 
-## Technologies Used
+## Technology Stack
 
-- **Backend:**
-  - Node.js
-  - Express
-  - PostgreSQL
-  - JWT for authentication
-  - Bcrypt for password hashing
-
-- **Frontend:**
-  - React
-  - Axios for API requests
-  - React Router for navigation
-
+- **Frontend:** React, Axios, React Router
+- **Backend:** Node.js, Express, PostgreSQL
+- **Authentication:** JWT, bcrypt
+- **Testing:** Jest, Supertest
+- **Deployment:** Netlify
 - **Data Source:**
-  - Utilizes the Drugs@FDA: Data Import Utility for medication data (https://github.com/jason-fries/drugsatfda-db)
+  - FDA Drug (https://open.fda.gov/apis/drug/drugsfda/)
 
 ## Features
 
-- User authentication (Login/Registration)
-- Search functionality for medications
-- Price comparison across different pharmacies
-- User profile management
-- Secure handling of user data
+- **Medication Search:** Users can search for medications by their brand or generic names using the FDA's open data.
+- **Price Comparison:** Display randomized, yet realistic, pricing information for medications across various pharmacies.
+- **Pharmacy Information:** Users can view detailed information about pharmacies, including random discount codes.
+- **User Authentication:** Secure login and registration system for users.
+- **Admin Features:** Special functionalities available for users marked as admins, like viewing all users.
 
 ## Getting Started
 
 These instructions will help you set up and run QualityRx on your local machine for development and testing purposes.
-
-### Prerequisites
-
-- Node.js
-- PostgreSQL
-- npm (Node Package Manager)
 
 ### Installation
 
@@ -80,27 +67,33 @@ These instructions will help you set up and run QualityRx on your local machine 
 6. Start the backend server
    ```bash
    cd backend
-   npm start
+   node server.js
    ```
 7. Start the frontend application
    ```bash
    cd frontend
    npm start
    ```
+## Tests
 
-## Usage
+The backend of QualityRx includes several unit and integration tests to ensure that APIs and database models function as expected. Tests are written using Jest and Supertest.
 
-After installation, you can use QualityRx to search for medications, compare prices, and manage your user account.
+To run the tests, navigate to the backend directory and use the command:
 
-<!-- ## API Endpoints
+```bash
+npm test
+```
 
-List and describe the available API endpoints for the backend, including methods, request parameters, and expected responses.
+## User Flow
 
-## Contributing
+1. **Registration/Login:** Users start by registering or logging into the application.
+2. **Searching for Medications:** Users can search for medications using the search bar on the homepage.
+3. **Viewing Medication Prices:** After a search, users are presented with medication details and prices across different pharmacies.
+4. **Exploring Pharmacy Information:** Users can explore detailed information about pharmacies, including special discount codes.
 
-Guidelines for contributing to the project, including how to submit pull requests, report bugs, and suggest enhancements.
+### Example API Endpoints:
 
-## Acknowledgments
+- `GET /api/medications/search?term={medicationName}`: Search for medications.
+- `POST /api/users/register`: Register a new user.
+- `GET /api/pharmacies`: Get a list of pharmacies.
 
-Thank any individuals, organizations, or resources that were instrumental in the development of your project.
- -->

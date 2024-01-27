@@ -1,17 +1,19 @@
 // ./src/components/Navigation.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './styles/Navigation';
+import '../styles/Navigation.css';
 
 function Navigation() {
   return (
-    <nav>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <img src="/QualityRx-logoandname.png" alt="QualityRx Logo" />
+      </div>
+      <div className="navbar-links">
       <Link to="/">Home</Link> | 
-      <Link to="/medications">Medications</Link> | 
-      <Link to="/pharmacies">Pharmacies</Link> | 
-      <Link to="/profile">User Profile</Link> |
       <Link to="/login">Login</Link> | 
       <Link to="/register">Register</Link>
+      </div>
     </nav>
   );
 }

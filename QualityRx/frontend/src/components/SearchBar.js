@@ -1,6 +1,7 @@
 // SearchBar.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/SearchBar.css';
 
 function SearchBar() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,14 +14,15 @@ function SearchBar() {
   };
 
   return (
-    <form onSubmit={handleSearch}>
+    <form className="searchbar-form" onSubmit={handleSearch}>
       <input
+        className="searchbar-input"
         type="text"
         placeholder="Search for medications by brand or generic name..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button type="submit" disabled={!searchTerm.trim()}>Search</button>
+      <button className="searchbar-button" type="submit" disabled={!searchTerm.trim()}>Search</button>
     </form>
   );
 }

@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from '../SearchBar';
 import MedicationPrice from './MedicationPrice';
+import 'QualityRx/frontend/src/components/medication/MedicationSearchResult.css';
 
 function MedicationSearchResults() {
   const [searchParams] = useSearchParams();
@@ -71,9 +72,11 @@ function MedicationSearchResults() {
 
   // Display medication details
   return (
-    <div>
+    <div className="medication-results-container">
+      <div className="search-bar-custom">
       <SearchBar />
       <MedicationPrice medicationName={searchTerm} />
+      <div className="medication-details">
       <h2>Medication Details</h2>
       <p><strong>Brand Name:</strong> {medicationDetails.brandName}</p>
       <p><strong>Generic Name:</strong> {medicationDetails.genericName}</p>
@@ -87,6 +90,8 @@ function MedicationSearchResults() {
       <p><strong>Pregnancy or Breast Feeding:</strong> {medicationDetails.pregnancyOrBreastFeeding}</p>
       <p><strong>Stop Use:</strong> {medicationDetails.stopUse}</p>
       <p><strong>Package Label Principal Display Panel:</strong> {medicationDetails.packageLabelPrincipalDisplayPanel}</p>
+      </div>
+      </div>
     </div>
   );
 }

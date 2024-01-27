@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
-
-
-
+import '../styles/Home.css';
+import Navigation  from  './Navigation';
 function Home() {
   const navigate = useNavigate();
   const handleSearch = (e) => {
@@ -13,23 +12,23 @@ function Home() {
   };
 
   return (
-    <div>
-      <h1>Welcome to QualityRx</h1>
-      <p>Your go-to app for comparing medication prices.</p>
+    <div className="home-container">
+      <Navigation/>
+      <h1 className="home-header">Welcome to QualityRx</h1>
+      <p className="home-content">Your go-to app for comparing medication prices.</p>
 
       {/* Search Bar */}
       <SearchBar />
 
       {/* Promotional Content */}
-      <section>
+      <section className="home-content">
         <h2>Why Choose QualityRx?</h2>
         <p>Find the best prices for your medications at local pharmacies.</p>
       </section>
 
       {/* Navigation Links */}
-      <nav>
+      <nav className="home-nav">
         <ul>
-          <li><Link to="/pharmacies">Find Pharmacies</Link></li>
           <li><Link to="/about">About Us</Link></li>
         </ul>
       </nav>
