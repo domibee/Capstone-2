@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,15 +18,7 @@ function Home() {
       <p>Your go-to app for comparing medication prices.</p>
 
       {/* Search Bar */}
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          placeholder="Search for medications..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
+      <SearchBar />
 
       {/* Promotional Content */}
       <section>
