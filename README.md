@@ -14,9 +14,6 @@ QualityRx is a medication pricing comparison app designed to help users find the
 - [Tests](#tests)
 - [User Flow](#user-flow)
 - [Example API Endpoints](#example-api-endpoints)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
-- [Contact](#contact)
 
 ## About
 
