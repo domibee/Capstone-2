@@ -1,34 +1,42 @@
-// MedicationPrice.js (Frontend component)
+// In your React component (e.g., MedicationPrice.js)
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function MedicationPrice({ medicationName }) {
-    const [priceData, setPriceData] = useState(null);
+    const [prices, setPrices] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchPriceData = async () => {
+        const fetchPrices = async () => {
+            setLoading(true);
             try {
                 const response = await axios.get(`http://localhost:3001/api/prices/${medicationName}`);
-                setPriceData(response.data);
+                setPrices(response.data.prices);
             } catch (error) {
-                console.error('Error fetching price data:', error);
+                console.error('Error fetching prices:', error);
+            } finally {
+                setLoading(false);
             }
         };
 
-        if (medicationName) {
-            fetchPriceData();
-        }
+        fetchPrices();
     }, [medicationName]);
 
-    if (!priceData) {
-        return <div>Price Data Loading...</div>;
-    }
+    if (loading) return <div>Loading...</div>;
+    if (!prices) return <div>No pricing information available.</div>;
 
     return (
         <div>
-            <h3>Prices for {medicationName}</h3>
-            <p>Retail Price: ${priceData.retailPrice}</p>
-            <p>Discounted Price: ${priceData.finalDiscountedPrice}</p>
+            <h2>Prices for {medicationName}</h2>
+            {Object.entries(prices).map(([pharmacyName, priceInfo], index) => (
+                <div key={index}>
+                    <h3>{pharmacyName}</h3>
+                    <p>Retail Price: ${priceInfo.retailPrice}</p>
+                    <p>Discounted Price: ${priceInfo.discountedPrice}</p>
+                    {/* Display additional details like BIN, PCN, etc. */}
+                </div>
+            ))}
         </div>
     );
 }

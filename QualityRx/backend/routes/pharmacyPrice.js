@@ -5,12 +5,13 @@ const generatePrices = require('../utils/generatePrices');
 
 router.get('/:medicationName', (req, res) => {
     const medicationName = req.params.medicationName;
-    // Assume a base price for demonstration purposes
-    const basePrice = Math.random() * (15 - 5) + 5; // Random base price between $5 and $15
+    
+    // For demonstration, we'll use a dynamic base price based on the length of the medication name
+    const basePrice = 10 + medicationName.length % 5; // Adjust this logic as needed
 
     try {
         const prices = generatePrices(basePrice);
-        res.json({ medicationName, ...prices });
+        res.json({ medicationName, prices });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });

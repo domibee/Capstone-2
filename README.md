@@ -92,5 +92,4 @@ npm test
 
 - `GET /api/medications/search?term={medicationName}`: Search for medications.
 - `POST /api/users/register`: Register a new user.
-- `GET /api/pharmacies`: Get a list of pharmacies.
 

@@ -4,12 +4,12 @@ const pharmacies = ['CVS', 'Rite Aid', 'Walgreens', 'Costco', 'Walmart', 'Sav-on
 function generatePrices(basePrice) {
     let prices = {};
     pharmacies.forEach(pharmacy => {
-        // Randomly adjust the price by up to $2
+        // Randomly adjust the price down by up to $2
         const priceAdjustment = Math.random() * 2;
-        const finalPrice = basePrice + priceAdjustment;
+        const finalPrice = basePrice - priceAdjustment;
         prices[pharmacy] = {
             retailPrice: basePrice.toFixed(2),
-            discountedPrice: finalPrice.toFixed(2),
+            discountedPrice: Math.max(finalPrice, basePrice * 0.8).toFixed(2), // Ensure discounted price is not too low
             bin: generateRandomId(),
             pcn: generateRandomId(),
             group: generateRandomId(),
