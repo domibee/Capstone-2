@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Navigation  from  '../Navigation';
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+  Button,
+} from '@chakra-ui/react'
+import { Center, Square, Circle,AbsoluteCenter, Box } from '@chakra-ui/react'
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -31,23 +40,29 @@ function Register() {
   return (
     <div>
       <Navigation/>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </div>
-        <button type="submit">Register</button>
-      </form>
-      {error && <p>{error}</p>}
+      <div className='login-form'>
+      <Circle bg='#0056b3' position='relative' h='800px' onSubmit={handleSubmit}>
+        <AbsoluteCenter  p='10' color='white' axis='both'>
+          <Center><h2><strong>Login</strong></h2></Center>
+          <FormControl>
+          <FormLabel>Username:</FormLabel>
+          <Input type='text' value={username} onChange={(e) => setUsername(e.target.value)} />
+          <FormLabel>Email:</FormLabel>
+          <Input type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <FormLabel>Password:</FormLabel>
+          <Input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
+          </FormControl>
+          <Button
+                mt={4}
+                colorScheme='gray'
+                
+                type='submit'
+              >
+                Submit
+              </Button>
+            </AbsoluteCenter>
+          </Circle>
+    </div>
     </div>
   );
 }

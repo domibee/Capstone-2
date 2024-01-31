@@ -5,7 +5,8 @@ import { useSearchParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from '../SearchBar';
 import MedicationPrice from './MedicationPrice';
-
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import Navigation  from  '../Navigation';
 
 function MedicationSearchResults() {
   const [searchParams] = useSearchParams();
@@ -31,7 +32,7 @@ function MedicationSearchResults() {
         if (!labelData || !drugData) {
           setNoResults(true);
           return;
-        }
+        } /** TODO Must write this in the backend rather than front end for my dynamic code */
         setMedicationDetails({
           indicationsAndUsage: labelData?.indications_and_usage?.join(', ') || 'No indications and usage information available.',
           purpose: labelData?.purpose?.join(', ') || 'No purpose information available.',
@@ -74,32 +75,53 @@ function MedicationSearchResults() {
 
   // Display medication details
   return (
-    <div className="medication-results-container">
-      <div className="search-bar-custom">
+    <div className="search-bar-custom">
+      <Navigation/>
       <div className="search-bar-with-logo">
         <Link to="/">
           <img src="/QualityRx-logo.png" alt="QualityRx Logo" className="logo-small" />
         </Link>
-      </div>
-      <SearchBar />
-      <MedicationPrice medicationName={searchTerm} />
-      <div className="medication-details">
-      <h2>Medication Details</h2>
-      <p><strong>Brand Name:</strong> {medicationDetails.brandName}</p>
-      <p><strong>Generic Name:</strong> {medicationDetails.genericName}</p>
-      <p><strong>Manufacturer:</strong> {medicationDetails.manufacturerName}</p>
-      <p><strong>Indications and Usage:</strong> {medicationDetails.indicationsAndUsage}</p>
-      <p><strong>Purpose:</strong> {medicationDetails.purpose}</p>
-      <p><strong>Dosage and Administration:</strong> {medicationDetails.dosageAndAdministration}</p>
-      <p><strong>Keep Out of Reach of Children:</strong> {medicationDetails.keepOutOfReachOfChildren}</p>
-      <p><strong>Warnings:</strong> {medicationDetails.warnings}</p>
-      <p><strong>Other Safety Information:</strong> {medicationDetails.otherSafetyInformation}</p>
-      <p><strong>Pregnancy or Breast Feeding:</strong> {medicationDetails.pregnancyOrBreastFeeding}</p>
-      <p><strong>Stop Use:</strong> {medicationDetails.stopUse}</p>
-      <p><strong>Package Label Principal Display Panel:</strong> {medicationDetails.packageLabelPrincipalDisplayPanel}</p>
-      </div>
-      </div>
+       <SearchBar />
     </div>
+    
+    <div className="medication-results-container">
+      <Tabs variant='enclosed' align ='center'>
+      <TabList>
+        <Tab>Pricing</Tab>
+        <Tab>Indications and Usage</Tab>
+        <Tab>Warnings and Contraindications </Tab>
+        <Tab>Pregnancy</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>
+        <div className="medication-details">
+            <h2><strong>{searchTerm}</strong></h2>
+            <p><strong>Brand Name:</strong> {medicationDetails.brandName}</p>
+            <p><strong>Generic Name:</strong> {medicationDetails.genericName}</p>
+            </div>
+          <MedicationPrice medicationName={searchTerm} />
+        </TabPanel>
+        <TabPanel>
+        <p><strong>Manufacturer:</strong> {medicationDetails.manufacturerName}</p>
+        <p><strong>Indications and Usage:</strong> {medicationDetails.indicationsAndUsage}</p>
+        <p><strong>Purpose:</strong> {medicationDetails.purpose}</p>
+        <p><strong>Dosage and Administration:</strong> {medicationDetails.dosageAndAdministration}</p>
+        </TabPanel>
+        <TabPanel>
+        <p><strong>Keep Out of Reach of Children:</strong> {medicationDetails.keepOutOfReachOfChildren}</p>
+        <p><strong>Warnings:</strong> {medicationDetails.warnings}</p>
+        <p><strong>Other Safety Information:</strong> {medicationDetails.otherSafetyInformation}</p>
+        </TabPanel>
+        <TabPanel>
+        <p><strong>Pregnancy or Breast Feeding:</strong> {medicationDetails.pregnancyOrBreastFeeding}</p>
+        <p><strong>Stop Use:</strong> {medicationDetails.stopUse}</p>
+        </TabPanel>
+      </TabPanels>
+    </Tabs>
+        
+    </div>
+    </div>
+    
   );
 }
 

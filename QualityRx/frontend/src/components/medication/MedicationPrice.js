@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Card, CardHeader, CardBody, CardFooter, Heading, Stack, StackDivider, Box, Text } from '@chakra-ui/react'
 
 function MedicationPrice({ medicationName }) {
     const [prices, setPrices] = useState(null);
@@ -25,9 +26,20 @@ function MedicationPrice({ medicationName }) {
     if (!prices) return <div>No pricing information available.</div>;
 
     return (
-        <div>
-            <h2>Prices for {medicationName}</h2>
-            {Object.entries(prices).map(([pharmacyName, priceInfo], index) => (
+        
+        <Card>
+            <CardHeader>
+            <Heading size='md'><h2>Prices for {medicationName}</h2></Heading>
+            </CardHeader>
+
+            <CardBody>
+            <Stack divider={<StackDivider />} spacing='4'>
+                <Box>
+                <Heading size='xs' textTransform='uppercase'>
+                    Overview
+                </Heading>
+                <Text pt='2' fontSize='sm'>
+                {Object.entries(prices).map(([pharmacyName, priceInfo], index) => (
                 <div key={index}>
                     <h3>{pharmacyName}</h3>
                     <p>Retail Price: ${priceInfo.retailPrice}</p>
@@ -35,7 +47,12 @@ function MedicationPrice({ medicationName }) {
                     {/* Display additional details like BIN, PCN, etc. */}
                 </div>
             ))}
-        </div>
+                </Text>
+                </Box>
+            </Stack>
+            </CardBody>
+        </Card>
+        
     );
 }
 

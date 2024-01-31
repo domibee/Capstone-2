@@ -2,16 +2,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navigation.css';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+} from '@chakra-ui/react'
 
 function Navigation() {
   return (
-    <nav className="navbar">
-      <div className="navbar-links">
-      <Link to="/">Home</Link> 
-      <Link to="/login">Login</Link> 
-      <Link to="/register">Register</Link>
-      </div>
-    </nav>
+   
+    <Breadcrumb separator='|'>
+      <BreadcrumbItem>
+        <BreadcrumbLink as={Link} to='/'>
+          Home
+        </BreadcrumbLink>
+      </BreadcrumbItem>
+      <BreadcrumbItem>
+        <BreadcrumbLink as={Link} to='/login'>
+          Login
+        </BreadcrumbLink>
+      </BreadcrumbItem >
+      <BreadcrumbItem>
+      <BreadcrumbLink as={Link} to='/register'>Register</BreadcrumbLink>
+      </BreadcrumbItem>
+    </Breadcrumb>
   );
 }
 

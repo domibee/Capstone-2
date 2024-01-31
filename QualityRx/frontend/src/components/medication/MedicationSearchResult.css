@@ -1,42 +1,5 @@
 /* MedicationSearchResult.css */
 
-medication-results-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.medication-details {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.medication-details h2 {
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.medication-details p {
-  margin-bottom: 10px;
-  color: #666;
-  line-height: 1.6;
-}
-
-.medication-details strong {
-  color: #333;
-}
-
-/* Prices Section */
-.prices-section {
-  margin-top: 20px;
-}
-
 /* Customization for SearchBar if needed */
 .search-bar-custom {
   margin-bottom: 20px;
@@ -72,4 +35,42 @@ medication-results-container {
   margin-right: 50px;
   width: 300px; /* Adjust the size as needed */
   height: auto;
+}
+
+medication-results-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ 
+}
+
+.medication-details {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.medication-details h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.medication-details p {
+  margin-bottom: 10px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.medication-details strong {
+  color: #333;
+}
+
+/* Prices Section */
+.prices-section {
+  margin-top: 20px;
 }
