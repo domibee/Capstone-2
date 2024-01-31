@@ -1,0 +1,17 @@
+import React from 'react';
+import { Divider, Box, AbsoluteCenter } from '@chakra-ui/react'
+
+function Footer() {
+
+    
+  return (
+    <Box position='relative' padding='10'>
+        <Divider />
+        <AbsoluteCenter bg='white' px='4'>
+            Content
+        </AbsoluteCenter>
+    </Box>
+  );
+}
+
+export default Footer;

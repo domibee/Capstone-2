@@ -29,7 +29,11 @@ function Home() {
         <h2>Why Choose QualityRx?</h2>
         <p>Find the best prices for your medications at local pharmacies.</p>
       </section>
-
+      <div className="pharmacy-logo">
+        <img src="/pharmacy-logo/cvs.png" alt="CVS Logo"/>
+        <img src="/pharmacy-logo/ra.png" alt="RiteAid Logo"/>
+        <img src="/pharmacy-logo/walgreens.png" alt="Walgreens Logo"/>
+      </div>
     </div>
   );
 }

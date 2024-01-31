@@ -46,17 +46,14 @@ body {
   line-height: 1.6;
 }
 
-/* .home-nav {
-  margin-top: 40px;
+.pharmacy-logo {
+  display: flex;
+  flex-direction: row;
   
 }
 
-.home-nav a {
-  color: #0056b3;
-  margin: 0 10px;
-  
+.pharmacy-logo img{
+  height: 150px;
+  padding: 50px 20px;
+  margin: 0 50px;
 }
-
-.home-nav a:hover {
-  text-decoration: underline;
-} */
