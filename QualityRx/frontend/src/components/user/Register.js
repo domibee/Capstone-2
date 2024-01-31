@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Navigation  from  '../Navigation';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -29,6 +30,7 @@ function Register() {
 
   return (
     <div>
+      <Navigation/>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div>

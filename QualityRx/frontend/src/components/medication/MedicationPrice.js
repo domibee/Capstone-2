@@ -1,5 +1,3 @@
-// In your React component (e.g., MedicationPrice.js)
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 

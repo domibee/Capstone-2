@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Navigation  from  '../Navigation';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -19,6 +20,7 @@ function Login() {
 
   return (
     <div>
+      <Navigation/>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>

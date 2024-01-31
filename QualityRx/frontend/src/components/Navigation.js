@@ -6,12 +6,9 @@ import '../styles/Navigation.css';
 function Navigation() {
   return (
     <nav className="navbar">
-      <div className="navbar-logo">
-        <img src="/QualityRx-logoandname.png" alt="QualityRx Logo" />
-      </div>
       <div className="navbar-links">
-      <Link to="/">Home</Link> | 
-      <Link to="/login">Login</Link> | 
+      <Link to="/">Home</Link> 
+      <Link to="/login">Login</Link> 
       <Link to="/register">Register</Link>
       </div>
     </nav>

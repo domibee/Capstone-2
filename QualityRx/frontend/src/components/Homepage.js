@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import '../styles/Home.css';
 import Navigation  from  './Navigation';
+
 function Home() {
   const navigate = useNavigate();
   const handleSearch = (e) => {
@@ -14,6 +15,9 @@ function Home() {
   return (
     <div className="home-container">
       <Navigation/>
+      <div className="navbar-logo">
+        <img src="/QualityRx-logoandname.png" alt="QualityRx Logo" />
+      </div>
       <h1 className="home-header">Welcome to QualityRx</h1>
       <p className="home-content">Your go-to app for comparing medication prices.</p>
 
@@ -26,12 +30,6 @@ function Home() {
         <p>Find the best prices for your medications at local pharmacies.</p>
       </section>
 
-      {/* Navigation Links */}
-      <nav className="home-nav">
-        <ul>
-          <li><Link to="/about">About Us</Link></li>
-        </ul>
-      </nav>
     </div>
   );
 }
